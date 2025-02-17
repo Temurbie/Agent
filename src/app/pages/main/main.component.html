@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div class="footer-section">
+        <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product ID</th>
+                <th scope="col">Price</th>
+                <th scope="col">Countity</th>
+                <th scope="col">Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products; let i = index;" (click)="openModul(product)">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productId }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.price * product.quantity }}</td>
+             
+            </tbody>
+          </table>
+          
+          
+    </div>
+</div>
+<router-outlet />
