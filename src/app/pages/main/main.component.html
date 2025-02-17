@@ -13,7 +13,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of products; let i = index;" (click)="openModul(product)">
+              <tr *ngFor="let product of products; let i = index;" (click)="openModal(product, content)">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ product.productName }}</td>
                 <td>{{ product.productId }}</td>
@@ -24,6 +24,32 @@
             </tbody>
           </table>
           
+         
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title p-3">{{selectedProduct?.productName}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="containerText">
+      <div class="row">
+        <p class="col ms-2"><strong>Price</strong> {{selectedProduct?.price}} </p>
+        <div class="input-group col ms-2">
+          <button class="btn btn-outline-secondary" (click)="decrement()">-</button>
+          <input type="number" class="form-control text-center"  [(ngModel)]="quantity" readonly>
+          <button class="btn btn-outline-primary" (click)="increment()">+</button>
+          <button class="btn btn-primary ms-2" (click)="modal.dismiss();  addInfo(quantity)">Olish</button>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col ms-2"><strong>Quantity </strong> {{selectedProduct?.quantity}}</div>
+      </div>
+    </div>
+  </div>
+</ng-template>
           
     </div>
 </div>
