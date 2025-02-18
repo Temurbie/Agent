@@ -27,6 +27,8 @@ export class MainComponent implements OnInit {
   modalService = inject(NgbModal)
   
   selectedProduct: Product | null = null;
+
+  
   
   products : Product[] = [
     { productId: 1, productName: 'Product 1', price: 100, quantity: 10 },
@@ -43,6 +45,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct()
+    
   }
   getProduct(){
     this.serviceProduct.getProducts().subscribe(data =>{

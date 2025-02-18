@@ -10,7 +10,7 @@ export class ProductService {
 
   http = inject(HttpClient);
 
-  private apiUrl = "local"
+  private apiUrl = " https://api.stripe.com/v1/customers"
 
   getProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.apiUrl)
