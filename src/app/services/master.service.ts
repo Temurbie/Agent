@@ -8,7 +8,7 @@ export class MasterService {
 
   http = inject(HttpClient);
 
-  url = "url"
+  url = 'https://projectapi.gerasim.in/api/Products'
 
   GetCustomer(){
    return this.http.get(this.url)

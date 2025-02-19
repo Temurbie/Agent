@@ -11,3 +11,20 @@ export interface infoProduct extends Product{
     nameAgent?: string;
     nameMarket?:string
 }
+
+export interface Customer {
+    code: string;
+    name: string;
+    phoneNumber: string;
+    address: string;
+  }
+
+  export interface Productt {
+    code: string;
+    name: string;
+    category: string;
+    price: number;
+    stock: number;
+  }
+  
+  

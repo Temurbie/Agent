@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label>Customer</label>
                         <span class="text-danger">*</span>
-                        <select  formControlName="customerId" class="form-control" >
+                        <select  formControlName="customerId" (change)="customerChange()" class="form-control" >
                             <option *ngFor="let item of masterCustomer" [value]="item.code">
                                 {{item.name}}
                             </option>
@@ -60,7 +60,7 @@
                         {{i + 1}}
                     </td>
                     <td>
-                        <select class="form-control" formControlName="productCode">
+                        <select class="form-control" (change)="changeProduct(i)" formControlName="productCode">
                             <option *ngFor="let item of masterProduct" [value]="item.code">
                                 {{item.name}}
                             </option>
