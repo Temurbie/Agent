@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { infoProduct, Product } from '../../interface/product.interface';
+import { infoProduct, mainProduct, Product } from '../../interface/product.interface';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -30,11 +30,8 @@ export class MainComponent implements OnInit {
 
   
   
-  products : Product[] = [
-    { productId: 1, productName: 'Product 1', price: 100, quantity: 10 },
-    { productId: 2, productName: 'Product 2', price: 200, quantity: 5 },
-    { productId: 3, productName: 'Product 3', price: 150, quantity: 8 },
-    { productId: 4, productName: 'Product 4', price: 250, quantity: 12 }
+  products : mainProduct[] = [
+
   ] 
 
   infoProduct : infoProduct[] =[];
@@ -43,16 +40,28 @@ export class MainComponent implements OnInit {
   quantity: number = 1;
 
 
+
+
   ngOnInit(): void {
     this.getProduct()
     
   }
-  getProduct(){
-    this.serviceProduct.getProducts().subscribe(data =>{
-      this.products = data
-      console.log("getPRoductdan data", data)
-    })
+  getProduct() {
+    console.log("ishga tushdi")
+  this.serviceProduct.getProducts().subscribe({
+    next : (data) =>{
+      this.products = data;
+      console.log(this.products[0].name)
+    },
+    error : (err) =>{
+      console.log(`error bor ${err.message}`)
+    },
+    complete :() =>{
+      console.log(`operatsiya zur utdi`)
+    }
+  })
   }
+  
 
   openModal(product: Product, content: any): void {
     this.quantity = 0

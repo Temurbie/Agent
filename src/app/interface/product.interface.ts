@@ -26,5 +26,9 @@ export interface Customer {
     price: number;
     stock: number;
   }
-  
+  export interface mainProduct{
+    id : number;
+    name: string;
+    age: number
+  }
   

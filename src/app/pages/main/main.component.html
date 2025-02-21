@@ -13,13 +13,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of products; let i = index;" (click)="openModal(product, content)">
+              <tr *ngFor="let product of products; let i = index;">
                 <th scope="row">{{ i + 1 }}</th>
-                <td>{{ product.productName }}</td>
-                <td>{{ product.productId }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.quantity }}</td>
-                <td>{{ product.price * product.quantity }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.age }}</td>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.id }}</td>
              
             </tbody>
           </table>
